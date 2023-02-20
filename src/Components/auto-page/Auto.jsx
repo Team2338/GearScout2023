@@ -3,6 +3,9 @@ import Mobility from './Mobility';
 import './Auto.scss';
 import CombinedButtons from './CombinedButtons';
 import Docked from './Docked';
+import AutoGriddyInfoButton from './AutoGriddyInfoButton';
+import MobilityInfoButton from './MobilityInfoButton';
+import AutoChargeStationInfoButton from './AutoChargeStationInfoButton';
 
 
 class Auto extends React.Component { 
@@ -10,7 +13,10 @@ class Auto extends React.Component {
         return(
             <div class='background'>
                 <h1 class='text'>Auto</h1>
+                <div class='grid-flex'>
                 <h3>Grid</h3>
+                <AutoGriddyInfoButton />
+                </div>
                 <CombinedButtons
                 gridA1Auto={this.props.gridA1Auto}
                 gridA2Auto={this.props.gridA2Auto}
@@ -46,10 +52,12 @@ class Auto extends React.Component {
                 addPieceBottomAuto={this.props.addPieceBottomAuto}
                 removePieceBottomAuto={this.props.removePieceBottomAuto} />
                 <h3>Mobility</h3>
+                <MobilityInfoButton />
                 <Mobility 
                 addMobilityAuto={this.props.addMobilityAuto}
                 removeMobilityAuto={this.props.removeMobilityAuto}/>
                 <h3>Charge Station</h3>
+                <AutoChargeStationInfoButton />
                 <Docked
                 noDockAuto={this.props.noDockAuto}
                 dockedAuto={this.props.dockedAuto}
