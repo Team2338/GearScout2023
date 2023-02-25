@@ -3,7 +3,7 @@ import Mobility from './Mobility';
 import './Auto.scss';
 import CombinedButtons from './CombinedButtons';
 import Docked from './Docked';
-import AutoGriddyInfoButton from './AutoGriddyInfoButton';
+import AutoGridInfoButton from './AutoGridInfoButton';
 import MobilityInfoButton from './MobilityInfoButton';
 import AutoChargeStationInfoButton from './AutoChargeStationInfoButton';
 
@@ -15,7 +15,7 @@ class Auto extends React.Component {
                 <h1 class='text'>Auto</h1>
                 <div class='grid-flex'>
                 <h3>Grid</h3>
-                <AutoGriddyInfoButton />
+                <AutoGridInfoButton />
                 </div>
                 <CombinedButtons
                 gridA1Auto={this.props.gridA1Auto}

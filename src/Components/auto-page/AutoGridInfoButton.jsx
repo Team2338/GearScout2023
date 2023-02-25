@@ -4,7 +4,7 @@ import { Button, Popover } from '@mui/material';
 
 
 
-function TeleopChargeStationInfoButton({text, showOnHover}) {
+function AutoGridInfoButton() {
     const [isOpen, setIsOpen] = useState(false);
     const [anchorEl, setAnchorEl] = useState(null);
     
@@ -19,7 +19,7 @@ function TeleopChargeStationInfoButton({text, showOnHover}) {
 
       const popoverContent = (
         <div>
-          <p>Press the button that corresponds to where the robot ended up on the charge station.</p>
+          <p>Press the button on the grid corresponding to where the robot placed their game piece.</p>
         </div>
       );
    
@@ -36,13 +36,13 @@ function TeleopChargeStationInfoButton({text, showOnHover}) {
   anchorOrigin={{
     vertical: 'bottom',
     horizontal: 'center',
-
   }}
   PaperProps={{
     style: {
         color: '#ff5000',
         backgroundColor: '#01233d',
         padding: "2px"
+        
     }
   }}
 >
@@ -55,4 +55,4 @@ function TeleopChargeStationInfoButton({text, showOnHover}) {
 
 
 
-export default TeleopChargeStationInfoButton;
+export default AutoGridInfoButton;

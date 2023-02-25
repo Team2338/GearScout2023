@@ -1,23 +1,54 @@
 import React from "react";
 import { useState } from "react";
-import { Button } from '@mui/material';
+import { Button, Popover } from '@mui/material';
 
 
 
 function MobilityInfoButton({text, showOnHover}) {
-    const [showInfo, setShowInfo] = useState(false)
+    const [isOpen, setIsOpen] = useState(false);
+    const [anchorEl, setAnchorEl] = useState(null);
+    
+    const handleClick = (event) => {
+        setAnchorEl(event.currentTarget);
+        setIsOpen(true);
+      };
+      const handleClose = () => {
+        setAnchorEl(null);
+        setIsOpen(false);
+      };
 
-    const handleClick = () => {
-        setShowInfo(!showInfo);
-
-    }
+      const popoverContent = (
+        <div>
+          <p>Press 'yes' if the robot left their community, 'no' if they have not.</p>
+        </div>
+      );
+   
 
     return (
         <div>
              <Button onClick={handleClick}>
              🛈
              </Button>
-             {showInfo && <div>Press 'yes' if the robot left their community, 'no' if they have not.</div>}
+             <Popover
+  open={isOpen}
+  anchorEl={anchorEl}
+  onClose={handleClose}
+  anchorOrigin={{
+    vertical: 'bottom',
+    horizontal: 'center',
+  }}
+  PaperProps={{
+    style: {
+        color: '#ff5000',
+        backgroundColor: '#01233d',
+        padding: "2px"
+      
+    }
+  }}
+>
+  {popoverContent}
+</Popover>
+
         </div>
     )
 }

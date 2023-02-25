@@ -2,7 +2,7 @@ import React from 'react';
 import './Teleop.scss';
 import CombinedButtons from './CombinedButtons';
 import DockedTeleop from './DockedTeleop';
-import TeleopGriddyInfoButton from './TeleopGriddyInfoButton';
+import TeleopGridInfoButton from './TeleopGridInfoButton';
 import TeleopChargeStationInfoButton from './TeleopChargeStationInfoButton';
 
 
@@ -12,7 +12,7 @@ class Teleop extends React.Component {
             <div class='background'>
                 <h1 class='text'>Teleop</h1>
                 <h3 class='placed'>Grid</h3>
-                <TeleopGriddyInfoButton />
+                <TeleopGridInfoButton />
                 <CombinedButtons
                 gridA1Teleop={this.props.gridA1Teleop}
                 gridA2Teleop={this.props.gridA2Teleop}
