@@ -6,6 +6,7 @@ import { prepareAutoBatched } from '@reduxjs/toolkit';
 
 function ButtonChange(props) {
     const [variant, setVariant] = useState("outlined");
+    const [color, setColor] = useState("primary")
     const disabled = useSelector(state => state.buttons.find( button => button.id === props.id).disabled);
 
 
@@ -13,20 +14,27 @@ function ButtonChange(props) {
     const ChangeStyle = () => {
         if (variant === 'outlined') {
             setVariant('contained');
+            setColor('primary');
             props.addPieceTopTeleop();
-            props.gridA5Teleop()
+            props.gridA5Teleop();
         }
+		else if (variant === 'contained' && color === 'primary') {
+			setColor('#90D601');
+            props.addPieceTopTeleop();
+            props.gridA5Teleop();
+		}
         else {
             setVariant('outlined');
+            setColor('')
             props.removePieceTopTeleop();
-            props.removeGridA5Teleop()
+            props.removeGridA5Teleop();
         }
     }
     
     
     return (
             <div>
-                <Button variant={variant} onClick={ChangeStyle} disabled={disabled}>■</Button>
+                <Button variant={variant} style={{backgroundColor: color}} onClick={ChangeStyle} disabled={disabled}>■</Button>
             </div>
     )
 }
