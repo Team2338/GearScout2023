@@ -5,16 +5,12 @@ import Button from '@mui/material/Button'
 import { resetState } from '../../app/Actions';
 import { submitMatch } from '../../app/Effects.ts';
 import MatchInformation from '../match-information/MatchInformation'
-import Auto from '../auto-page/Auto';
-import Teleop from'../teleop-page/Teleop';
 import AllianceSelection from './AllianceSelection';
+import Auto from '../auto-page/Auto';
+import Teleop from '../teleop-page/Teleop';
 
 const selector = (state) => ({
-	autoMobility: state.auto.park,
-	autoChargeStation: state.auto.chargeStation,
-	autoGrid: state.auto.grid.map((node) => node),
-	teleopGrid: state.teleop.grid.map((node) => node),
-	teleopChargeStation: state.teleop.chargeStation
+
 });
 
 const connectDispatch = (dispatch) => ({
@@ -148,6 +144,7 @@ class ConnectedDataCollectionPage extends React.Component {
 	render() {
 		return (
 			<div className='background'>
+				 
 				<MatchInformation
 					scoutingTeamNumber={this.state.scoutingTeamNumber}
 					matchNumber={this.state.matchNumber}
@@ -156,9 +153,9 @@ class ConnectedDataCollectionPage extends React.Component {
 				/>
 				<div>
 					<AllianceSelection selectAlliance={this.setAllianceColor} selected={this.state.allianceColor}/>
+					<Auto />
+					<Teleop />
 				</div>
-				<Auto isNullified={this.state.isAutoNullified} setNullified={this.setAutoNullified}/>
-				<Teleop isNullified={this.state.isTeleopNullified} setNullified={this.setTeleopNullified}/>
 				<div className='submit'>
 					<Button sx={{ m: 0.5 }} style={{textTransform: 'capitalize'}} variant='outlined' className='submit' href='/'>Back</Button>
 					<Button sx={{ m: 0.5 }} style={{textTransform: 'capitalize'}} variant='contained' className='submit' onClick={this.submit}>Submit</Button>
